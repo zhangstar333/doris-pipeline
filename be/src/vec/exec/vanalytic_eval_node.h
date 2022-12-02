@@ -130,7 +130,8 @@ private:
 
     bool _input_eos = false;
     bool _next_partition = false;
-    bool _need_more_input = true;
+    std::atomic_bool _need_more_input = true;
+    BlockRowPos _found_partition_end;
     int64_t _input_total_rows = 0;
     int64_t _output_block_index = 0;
     int64_t _window_end_position = 0;
